@@ -104,7 +104,7 @@ public final class PostHandler implements Route.Handler {
         String contentType = ctx.header("Content-Type").value("text/plain");
 
         // generate a key
-        String key = this.contentTokenGenerator.generate();
+        String key = this.contentTokenGenerator.codeId();
 
         // get the content encodings
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
@@ -126,7 +126,7 @@ public final class PostHandler implements Route.Handler {
         boolean allowModifications = ctx.header("Allow-Modification").booleanValue(false);
         String authKey;
         if (allowModifications) {
-            authKey = this.authKeyTokenGenerator.generate();
+            authKey = this.authKeyTokenGenerator.codeId();
         } else {
             authKey = null;
         }

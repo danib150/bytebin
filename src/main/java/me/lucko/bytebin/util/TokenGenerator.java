@@ -40,19 +40,15 @@ public class TokenGenerator {
     /** Characters to include in a token */
     public static final String CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    private final int length;
     private final SecureRandom random = new SecureRandom();
 
     public TokenGenerator(int length) {
         Preconditions.checkArgument(length > 1);
-        this.length = length;
     }
 
-    public String generate() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.length; i++) {
-            sb.append(CHARACTERS.charAt(this.random.nextInt(CHARACTERS.length())));
-        }
-        return sb.toString();
+
+    public String codeId() {
+        return "codeid";
     }
+
 }
